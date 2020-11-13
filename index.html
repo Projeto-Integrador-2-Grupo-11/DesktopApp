@@ -4,11 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link rel="stylesheet" href="./index.css">
     <title>Seletor de Frutas</title>
   </head>
   <body>
     <h1>Seletor de Frutas</h1>
     <button id="title">Banco de Dados</button>
+    <!-- <div id="aligned">
+      <div class="container" id="pie1">
+        <canvas id="myChart"></canvas>
+      </div>
+      <div class="container" id="pie2">
+        <canvas id="myChart2"></canvas>
+      </div>
+    </div> -->
+    <div class="window">
+      <div class="window-content">
+        <div class="pane-group">
+          <div class="pane">
+            <div class="container" id="pie1">
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+          <div class="pane">
+            <div class="container" id="pie2">
+              <canvas id="myChart2"></canvas>
+            </div>
+          </div>
+          <div class="pane">...</div>
+        </div>
+      </div>
+    </div>
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
   </body>

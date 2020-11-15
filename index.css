@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Roboto-Light;
+  src: url('./assets/font/Roboto-Light.ttf');
+}
+
 .window {
     position: absolute;
     top: 60px;
@@ -29,7 +34,7 @@
     position: relative;
     overflow-y: auto;
     flex: 1;
-    border-left: 1px solid #ddd;
+    /* border-left: 1px solid #ddd; */
   }
   .pane:first-child {
     border-left: 0;
@@ -57,10 +62,12 @@
 
 
 #pie1 { 
+    margin-top: 50px;
     width:90%; 
     height:280px; 
 } 
 #pie2{ 
+    margin-top: 50px;
     width:90%; 
     height:280px; 
 } 
@@ -73,7 +80,8 @@
   clear: left;
 }
 
-.align {
+.title {
+  font-family: Roboto-Light;
   text-align: center;
 }
 
@@ -85,11 +93,17 @@ td
 .table {
   border: 0;
   border-collapse: collapse;
+  margin-top: 50px;
 }
 
 .table-header {
+  font-family: Roboto-Light;
   text-align: center;
   background-color: black;
   color: #fff;
   border-color: black;
+}
+
+.use-roboto {
+  font-family: Roboto-Light;
 }

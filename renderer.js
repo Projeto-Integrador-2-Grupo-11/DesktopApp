@@ -26,16 +26,23 @@ let dados = {
       // cria-se um vetor data, com os valores a ser dispostos no gráfico
       data: [10, 20, 30],
       // cria-se uma propriedade para adicionar cores aos respectivos valores do vetor data
-      backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 199, 132)', 'rgb(55, 99, 132)']
+      backgroundColor: ['rgb(55, 99, 132)', 'rgb(255, 199, 132)', 'rgb(255, 99, 132)']
+
   }],
   // cria-se legendas para os respectivos valores do vetor data
-  labels: ['Vermelho', 'Amarelo', 'Azul']
+  labels: ['Boas', 'Manchadas', 'Ruins']
 };
 
 let opcoes = {
   cutoutPercentage: 0,
   responsive: true,
-  maintainAspectRatio: false
+  maintainAspectRatio: false,
+  legend: {
+    position: 'bottom',
+    labels: {
+      usePointStyle: true
+    }
+  }
 };
 
 startDB();

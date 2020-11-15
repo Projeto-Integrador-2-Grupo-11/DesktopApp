@@ -14,10 +14,10 @@ async function startDB(){
         useUnifiedTopology: true,
         useFindAndModify: false,
         useCreateIndex: true
-      }).then(alert("banco conectado"))
+      }).then(console.log("banco conectado"))
 }
 
-document.getElementById('title').addEventListener('click', startDB);
+// document.getElementById('title').addEventListener('click', startDB);
 var ctx = document.getElementById('myChart');
 var ctx2 = document.getElementById('myChart2');
 
@@ -37,6 +37,8 @@ let opcoes = {
   responsive: true,
   maintainAspectRatio: false
 };
+
+startDB();
 
 var myPieChart = new Chart(ctx, {
   type: 'pie',

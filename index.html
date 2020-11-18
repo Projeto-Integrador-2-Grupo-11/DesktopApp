@@ -5,24 +5,29 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <link rel="stylesheet" href="./index.css">
-    <title>Seletor de Frutas</title>
+    <title>Seletor de Laranjas</title>
   </head>
   <body>
-    <h1 class="title">Seletor de Frutas</h1>
+    <h2 class="title">Seletor de Laranjas</h2>
     <div class="window">
       <div class="window-content">
         <div class="pane-group">
           <div class="pane">
             <div class="container" id="pie1">
+              <h3 class="chart-title">Qualidade</h3>
+              <h4 class="chart-subtitle">Atual</h4>
               <canvas id="myChart"></canvas>
             </div>
           </div>
           <div class="pane">
             <div class="container" id="pie2">
+              <h3 class="chart-title">Tamanho</h3>
+              <h4 class="chart-subtitle">Atual</h4>
               <canvas id="myChart2"></canvas>
             </div>
           </div>
           <div class="pane">
+            <h3 class="table-title">Visão Geral</h3>
             <table class="table">
               <tr class="table-header">
                   <th>Qualidade</th>
@@ -108,7 +113,7 @@
           </div>
         </div>
       </div>
-      <legend class="use-roboto">ID da Máquina: </legend>
+      <legend class="machine-id">ID da Máquina: </legend>
     </div>
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>

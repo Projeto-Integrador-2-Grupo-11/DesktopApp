@@ -7,6 +7,17 @@
 const mongoose = require('mongoose');
 var Chart = require('chart.js');
 
+const firebaseConfig = {
+  apiKey: "AIzaSyCboa08hL9h2vVIKp11gvNDCgwxCyhztI4",
+  authDomain: "seletor-frutas.firebaseapp.com",
+  databaseURL: "https://seletor-frutas.firebaseio.com",
+  projectId: "seletor-frutas",
+  storageBucket: "seletor-frutas.appspot.com",
+  messagingSenderId: "687514495840",
+  appId: "1:687514495840:web:5cdb5ee11278e0997b0c05",
+  measurementId: "G-EKD546TBT9"
+};
+
 async function startDB(){
     // console.log("au")
     await mongoose.connect('mongodb://localhost:27017/classificador', {
@@ -15,7 +26,22 @@ async function startDB(){
         useFindAndModify: false,
         useCreateIndex: true
       }).then(alert("banco conectado"))
+
 }
+
+async function checkConection(){
+  
+
+
+}
+
+async function syncDataBase(){
+  
+
+
+}
+
+startDB();
 
 document.getElementById('title').addEventListener('click', startDB);
 var ctx = document.getElementById('myChart');

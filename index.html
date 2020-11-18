@@ -1,16 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <link rel="stylesheet" href="./index.css">
-    <title>Seletor de Frutas</title>
-  </head>
-  <body>
-    <h1>Seletor de Frutas</h1>
-    <button id="title">Banco de Dados</button>
-    <!-- <div id="aligned">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <link rel="stylesheet" href="./index.css">
+  <title>Seletor de Frutas</title>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyCboa08hL9h2vVIKp11gvNDCgwxCyhztI4",
+      authDomain: "seletor-frutas.firebaseapp.com",
+      databaseURL: "https://seletor-frutas.firebaseio.com",
+      projectId: "seletor-frutas",
+      storageBucket: "seletor-frutas.appspot.com",
+      messagingSenderId: "687514495840",
+      appId: "1:687514495840:web:7168fc79be71d7667b0c05",
+      measurementId: "G-2VXGVWP15Q"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+
+    var email = "0002@maquina.com";
+    var password = "0002maquina";
+
+    //Sign In User with Email and Password
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+
+    });
+  </script>
+
+
+</head>
+
+<body>
+  <h1>Seletor de Frutas</h1>
+  <button id="title">Banco de Dados</button>
+  <!-- <div id="aligned">
       <div class="container" id="pie1">
         <canvas id="myChart"></canvas>
       </div>
@@ -18,24 +61,27 @@
         <canvas id="myChart2"></canvas>
       </div>
     </div> -->
-    <div class="window">
-      <div class="window-content">
-        <div class="pane-group">
-          <div class="pane">
-            <div class="container" id="pie1">
-              <canvas id="myChart"></canvas>
-            </div>
+  <div class="window">
+    <div class="window-content">
+      <div class="pane-group">
+        <div class="pane">
+          <div class="container" id="pie1">
+            <canvas id="myChart"></canvas>
           </div>
-          <div class="pane">
-            <div class="container" id="pie2">
-              <canvas id="myChart2"></canvas>
-            </div>
+        </div>
+        <div class="pane">
+          <div class="container" id="pie2">
+            <canvas id="myChart2"></canvas>
           </div>
-          <div class="pane">...</div>
+        </div>
+        <div class="pane">
+
         </div>
       </div>
     </div>
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+  </div>
+  <!-- You can also require other files to run in this process -->
+  <script src="./renderer.js"></script>
+</body>
+
 </html>

@@ -26,28 +26,51 @@ async function startDB() {
   }).then(console.log("banco conectado"))
 }
 
-function checkInternetConection(){
-  require('dns').resolve('www.google.com', function(err) {
+function syncDataBase(){
+  console.log('SYNC');
+}
+
+function checkInternetConection() {
+
+  require('dns').resolve('www.google.com', function (err) {
     if (err) {
-       console.log("No intert connection");
-       return false;
+      console.log("No intert connection");
     } else {
-       console.log("Internet connection is avaliable");
-       return true;
+      console.log("Internet connection is avaliable");
+      syncDataBase();
     }
   });
 };
 
-function sendDataToFirebase(){
-  firebase
-  .firestore()
-  .collection("books")
-  .add({
-    title: "Of Mice and Men",
-  })
-  .then((ref) => {
-    console.log("Added doc with ID: ", ref.id);
-    // Added doc with ID:  ZzhIgLqELaoE3eSsOazu
+function sendDataToFirebase(collection) {
+
+  // var array = [
+  //   {
+  //     batch: 1,
+  //     classification: 'good_with_spots',
+  //     date: '8 de outubro de 2020 15:00:00 UTC-3',
+  //     imgs: ["img1", "img2"],
+  //     machine_id: 1
+  //   },
+  //   {
+  //     batch: 1,
+  //     classification: 'good_without_spots',
+  //     date: '8 de outubro de 2020 15:15:00 UTC-3',
+  //     imgs: ["img1", "img2"],
+  //     machine_id: 1
+  //   }
+  // ]
+
+  var db = firebase.firestore();
+  var batch = db.batch();
+
+  collection.forEach((doc) => {
+    var docRef = db.collection("oranges").doc(); //automatically generate unique id
+    batch.set(docRef, doc);
+  });
+
+  batch.commit().then((ref) => {
+    console.log("Added batch: ", ref);
   });
 }
 
@@ -69,29 +92,16 @@ function createWindow() {
   // mainWindow.webContents.openDevTools()
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
 
-  createWindow();
-
-  firebase.initializeApp(firebaseConfig);
-
-  // firebase.firestore().collection("oranges").get().then(
-  //   (snapshot) => {
-  //     const data = snapshot.docs.map((doc) => ({
-  //       id: doc.id,
-  //       ...doc.data(),
-  //     }));
-  //     console.log("All data in 'books' collection", data);
-  //     // [ { id: 'glMeZvPpTN1Ah31sKcnj', title: 'The Great Gatsby' } ]
-  //   });
-
   startDB();
+  firebase.initializeApp(firebaseConfig);
+  createWindow();
+  // sendDataToFirebase();
+  setInterval(async () => {
+    checkInternetConection();
+  }, 1800);
   checkInternetConection();
-  
-
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
@@ -100,12 +110,6 @@ app.whenReady().then(() => {
   })
 })
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.

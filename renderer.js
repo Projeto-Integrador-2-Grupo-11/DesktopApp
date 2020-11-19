@@ -4,19 +4,10 @@
 // `nodeIntegration` is turned off. Use `preload.js` to
 // selectively enable features needed in the rendering
 // process.
-const mongoose = require('mongoose');
 var Chart = require('chart.js');
 require('chartjs-plugin-labels');
 
-async function startDB(){
-    // console.log("au")
-    await mongoose.connect('mongodb://localhost:27017/classificador', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false,
-        useCreateIndex: true
-      }).then(console.log("banco conectado"))
-}
+
 
 function splitRgb(rgb) {
   var matchColors = /rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)/;
@@ -36,10 +27,10 @@ var ctx2 = document.getElementById('myChart2');
 
 let quality = {
   datasets: [{
-      // cria-se um vetor data, com os valores a ser dispostos no gráfico
-      data: [10, 20, 30],
-      // cria-se uma propriedade para adicionar cores aos respectivos valores do vetor data
-      backgroundColor: ['rgb(57, 148, 239)', 'rgb(244, 242, 110)', 'rgb(242, 83, 81)']
+    // cria-se um vetor data, com os valores a ser dispostos no gráfico
+    data: [10, 20, 30],
+    // cria-se uma propriedade para adicionar cores aos respectivos valores do vetor data
+    backgroundColor: ['rgb(57, 148, 239)', 'rgb(244, 242, 110)', 'rgb(242, 83, 81)']
 
   }],
   // cria-se legendas para os respectivos valores do vetor data
@@ -48,10 +39,10 @@ let quality = {
 
 let size = {
   datasets: [{
-      // cria-se um vetor data, com os valores a ser dispostos no gráfico
-      data: [10, 20, 30],
-      // cria-se uma propriedade para adicionar cores aos respectivos valores do vetor data
-      backgroundColor: ['rgb(55, 99, 132)', 'rgb(255, 199, 132)', 'rgb(255, 99, 132)']
+    // cria-se um vetor data, com os valores a ser dispostos no gráfico
+    data: [10, 20, 30],
+    // cria-se uma propriedade para adicionar cores aos respectivos valores do vetor data
+    backgroundColor: ['rgb(55, 99, 132)', 'rgb(255, 199, 132)', 'rgb(255, 99, 132)']
   }],
   // cria-se legendas para os respectivos valores do vetor data
   labels: ['Grandes', 'Médias', 'Pequenas']
@@ -80,8 +71,6 @@ let opcoes = {
     }
   }
 };
-
-startDB();
 
 var myPieChart = new Chart(ctx, {
   type: 'pie',

@@ -48,42 +48,59 @@ function getAllOranges() {
         let goodOranges = lastInserted[0].good;
         let goodWithSpotsOranges = lastInserted[0].good_with_spots;
         let badOranges = lastInserted[0].bad;
+        let batch = lastInserted[0].batch;
+        let dateBatch = lastInserted[0].date;
+        let machineID = lastInserted[0].machine_id;
+        let total = largeOranges + mediumOranges + smallOranges;
+
         let size = {
             datasets: [{
-                // cria-se um vetor data, com os valores a ser dispostos no gráfico
+                // vetor com os valores a serem plotados no gráfico
                 data: [largeOranges, mediumOranges, smallOranges],
-                // cria-se uma propriedade para adicionar cores aos respectivos valores do vetor data
+                // propriedade para adicionar cores aos respectivos valores do vetor data
                 backgroundColor: ['rgb(55, 99, 132)', 'rgb(255, 199, 132)', 'rgb(255, 99, 132)']
             }],
-            // cria-se legendas para os respectivos valores do vetor data
+            // legendas para os respectivos valores do vetor data
             labels: ['Grandes', 'Médias', 'Pequenas']
         };
 
         let quality = {
           datasets: [{
-            // cria-se um vetor data, com os valores a ser dispostos no gráfico
+            // vetor com os valores a serem plotados no gráfico
             data: [goodOranges, goodWithSpotsOranges, badOranges],
-            // cria-se uma propriedade para adicionar cores aos respectivos valores do vetor data
+            // propriedade para adicionar cores aos respectivos valores do vetor data
             backgroundColor: ['rgb(57, 148, 239)', 'rgb(244, 242, 110)', 'rgb(242, 83, 81)']
         
           }],
-          // cria-se legendas para os respectivos valores do vetor data
+          // legendas para os respectivos valores do vetor data
           labels: ['Boas', 'Manchadas', 'Ruins']
         };
 
-        var myPieChart = new Chart(ctx, {
+        var qualityChart = new Chart(ctx, {
             type: 'pie',
             data: quality,
             options: opcoes
         });
 
-        var myPieChart2 = new Chart(ctx2, {
+        var sizeChart = new Chart(ctx2, {
             type: 'pie',
             data: size,
             options: opcoes
         });
+        fillMetadata(batch, dateBatch, total);
+        document.getElementById('machine-id').innerHTML = `ID da Máquina: ${machineID}`;
     })
     setTimeout(getAllOranges, 10000);
+}
+
+function fillMetadata(batch, dateBatch, total) {
+  let dataFormatada = ((dateBatch.getDate() )) + "/" + ((dateBatch.getMonth() + 1)) + "/" + dateBatch.getFullYear(); 
+
+  document.getElementById('batch').innerHTML = batch;
+  document.getElementById('date').innerHTML = dataFormatada;
+  document.getElementById('total').innerHTML = total;
+
+
 }
 
 module.exports.getAllOranges = getAllOranges;

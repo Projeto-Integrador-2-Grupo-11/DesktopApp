@@ -129,3 +129,11 @@ td
   margin-left: 3px;
   margin-bottom: 3px;
 }
+
+.floating {
+  font-family: Roboto-Light;
+  color: #607D8B;
+  float: left;
+  width: 50%;
+  margin-top: -10px;
+}

@@ -5,7 +5,7 @@
 // selectively enable features needed in the rendering
 // process.
 const mongoose = require('mongoose');
-var quantityOrangesController = require('./controller/quantityOrangesController')
+var quantityOrangesController = require('../controller/quantityOrangesController')
 
 async function startDB() {
   await mongoose.connect('mongodb://localhost:27017/classificador', {

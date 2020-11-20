@@ -1,6 +1,6 @@
 @font-face {
   font-family: Roboto-Light;
-  src: url('./assets/font/Roboto-Light.ttf');
+  src: url('../assets/font/Roboto-Light.ttf');
 }
 
 .window {

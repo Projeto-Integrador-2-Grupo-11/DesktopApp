@@ -6,7 +6,10 @@ var quantityOrangesSchema = mongoose.Schema({
     large_oranges: Number,
     machine_id: Number,
     medium_oranges: Number,
-    small_oranges: Number
+    small_oranges: Number,
+    good_with_spots: Number,
+    bad: Number,
+    good: Number
   });
 
 var quantityOrangesModel = module.exports = mongoose.model('quantity_oranges', quantityOrangesSchema);

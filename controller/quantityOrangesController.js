@@ -16,18 +16,6 @@ function splitRgb(rgb) {
 var ctx = document.getElementById('myChart');
 var ctx2 = document.getElementById('myChart2');
 
-let quality = {
-  datasets: [{
-    // cria-se um vetor data, com os valores a ser dispostos no gráfico
-    data: [10, 20, 30],
-    // cria-se uma propriedade para adicionar cores aos respectivos valores do vetor data
-    backgroundColor: ['rgb(57, 148, 239)', 'rgb(244, 242, 110)', 'rgb(242, 83, 81)']
-
-  }],
-  // cria-se legendas para os respectivos valores do vetor data
-  labels: ['Boas', 'Manchadas', 'Ruins']
-};
-
 let opcoes = {
   cutoutPercentage: 0,
   responsive: true,
@@ -53,11 +41,13 @@ let opcoes = {
 };
 
 function getAllOranges() {
-    console.log("chamou")
     QuantityOranges.find({}).sort({ _id: -1 }).limit(1).then((lastInserted) => {
         let largeOranges = lastInserted[0].large_oranges;
         let mediumOranges = lastInserted[0].medium_oranges;
         let smallOranges = lastInserted[0].small_oranges;
+        let goodOranges = lastInserted[0].good;
+        let goodWithSpotsOranges = lastInserted[0].good_with_spots;
+        let badOranges = lastInserted[0].bad;
         let size = {
             datasets: [{
                 // cria-se um vetor data, com os valores a ser dispostos no gráfico
@@ -67,6 +57,18 @@ function getAllOranges() {
             }],
             // cria-se legendas para os respectivos valores do vetor data
             labels: ['Grandes', 'Médias', 'Pequenas']
+        };
+
+        let quality = {
+          datasets: [{
+            // cria-se um vetor data, com os valores a ser dispostos no gráfico
+            data: [goodOranges, goodWithSpotsOranges, badOranges],
+            // cria-se uma propriedade para adicionar cores aos respectivos valores do vetor data
+            backgroundColor: ['rgb(57, 148, 239)', 'rgb(244, 242, 110)', 'rgb(242, 83, 81)']
+        
+          }],
+          // cria-se legendas para os respectivos valores do vetor data
+          labels: ['Boas', 'Manchadas', 'Ruins']
         };
 
         var myPieChart = new Chart(ctx, {
@@ -81,6 +83,7 @@ function getAllOranges() {
             options: opcoes
         });
     })
+    setTimeout(getAllOranges, 10000);
 }
 
 module.exports.getAllOranges = getAllOranges;

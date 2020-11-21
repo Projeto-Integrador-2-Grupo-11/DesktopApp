@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var quantityOrangesSchema = mongoose.Schema({
-    batch: Number,
+    batch: String,
     date: Date,
     large_oranges: Number,
     machine_id: Number,
@@ -9,7 +9,7 @@ var quantityOrangesSchema = mongoose.Schema({
     small_oranges: Number,
     good_with_spots: Number,
     bad: Number,
-    good: Number
+    good_spotless: Number
   });
 
 var quantityOrangesModel = module.exports = mongoose.model('quantity_oranges', quantityOrangesSchema);

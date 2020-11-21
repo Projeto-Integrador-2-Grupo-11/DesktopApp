@@ -18,7 +18,7 @@ const firebaseConfig = {
 
 async function startDB() {
   // console.log("au")
-  await mongoose.connect('mongodb://localhost:27017/classificador', {
+  await mongoose.connect('mongodb://localhost:27017/orange_classification', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,

@@ -45,13 +45,13 @@ function getAllOranges() {
         let largeOranges = lastInserted[0].large_oranges;
         let mediumOranges = lastInserted[0].medium_oranges;
         let smallOranges = lastInserted[0].small_oranges;
-        let goodOranges = lastInserted[0].good;
+        let goodOranges = lastInserted[0].good_spotless;
         let goodWithSpotsOranges = lastInserted[0].good_with_spots;
         let badOranges = lastInserted[0].bad;
         let batch = lastInserted[0].batch;
         let dateBatch = lastInserted[0].date;
         let machineID = lastInserted[0].machine_id;
-        let total = largeOranges + mediumOranges + smallOranges;
+        let total = goodOranges + goodWithSpotsOranges + badOranges;
 
         let size = {
             datasets: [{

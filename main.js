@@ -59,11 +59,11 @@ function sendOrangesToFirebase() {
     var batch = db.batch();
 
     oranges.forEach((doc) => {
-
       obj = {
         "batch": doc.batch,
         "classification": doc.classification,
         "imgs": doc.imgs,
+        "date": doc.date,
         "machine_id": doc.machine_id
       }
 

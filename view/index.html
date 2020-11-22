@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link rel="stylesheet" href="./index.css">
+    <title>Seletor de Laranjas</title>
+  </head>
+  <body>
+    <h2 class="title">Seletor de Laranjas</h2>
+    <div class="window">
+      <div class="window-content">
+        <div class="pane-group">
+          <div class="pane">
+            <div class="container" id="pie1">
+              <h3 class="chart-title">Qualidade</h3>
+              <h4 class="chart-subtitle">Atual</h4>
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+          <div class="pane">
+            <div class="container" id="pie2">
+              <h3 class="chart-title">Tamanho</h3>
+              <h4 class="chart-subtitle">Atual</h4>
+              <canvas id="myChart2"></canvas>
+            </div>
+          </div>
+          <div class="pane">
+            <h3 class="table-title">Visão Geral</h3>
+            <div class="floating">
+              <p>Lote:</p>
+            </div>
+            <div class="floating">
+              <p id="batch"></p>
+            </div>
+            <br/>
+            <div class="floating">
+              <p>Data:</p>
+            </div>
+            <div class="floating">
+              <p id="date"></p>
+            </div>
+            <br/>
+            <div class="floating">
+              <p>Total de Laranjas:</p>
+            </div>
+            <div class="floating">
+              <p id="total"></p>
+            </div>
+            <!-- <h4 class="chart-subtitle">Lote:<div>1</div></h4> -->
+          </div>
+        </div>
+      </div>
+      <legend id="machine-id" class="machine-id"></legend>
+    </div>
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+  </body>
+</html>

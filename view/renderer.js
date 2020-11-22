@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 var quantityOrangesController = require('../controller/quantityOrangesController')
 
 async function startDB() {
-  await mongoose.connect('mongodb://localhost:27017/classificador', {
+  await mongoose.connect('mongodb://localhost:27017/orange_classification', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,

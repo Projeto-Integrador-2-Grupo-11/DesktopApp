@@ -59,10 +59,12 @@ function sendOrangesToFirebase() {
     var batch = db.batch();
 
     oranges.forEach((doc) => {
+
       obj = {
         "batch": doc.batch,
         "classification": doc.classification,
-        "imgs": doc.imgs,
+        "image": "asdasdasdasdasd asdas4d5a6s4 d56as 4da5s 04das6das6d4a6a5s4 d065as40 d6a5s40 65d 40s65",
+        // "image": doc.image.toString(),
         "date": doc.date,
         "machine_id": doc.machine_id
       }
@@ -89,7 +91,10 @@ function sendQuantityOrangesToFirebase() {
       "large_oranges": lastInserted[0].large_oranges,
       "machine_id": lastInserted[0].machine_id,
       "medium_oranges": lastInserted[0].medium_oranges,
-      "small_oranges": lastInserted[0].small_oranges
+      "small_oranges": lastInserted[0].small_oranges,
+      "good_with_spots":lastInserted[0].good_with_spots,
+      "bad":lastInserted[0].bad,
+      "good_spotless":lastInserted[0].good_spotless
     }
 
     var identificator = lastInserted[0]._id;
